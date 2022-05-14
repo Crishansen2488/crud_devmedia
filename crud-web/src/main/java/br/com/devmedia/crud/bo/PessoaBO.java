@@ -28,13 +28,12 @@ public class PessoaBO {
 		try {
 			// Valida campos obg
 			Map<String, Object> valores = new HashMap<>();
-			valores.put("CPF", pessoaDTO.getCpf());
+			valores.put("'CPF'", pessoaDTO.getCpf());
 			if (new CPFValidator().validar(valores)) {
 				isValido = true;
 			}
-			//comentando
 			valores = new HashMap<>();
-			valores.put("Data Nascimento", pessoaDTO.getDtNasc());
+			valores.put("'Data de Nascimento'", pessoaDTO.getDtNasc());
 			if (new DataValidator().validar(valores)) {
 				isValido = true;
 			}

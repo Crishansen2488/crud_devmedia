@@ -16,7 +16,7 @@ public class EstadoDTO implements Serializable {
 		return idEstado;
 	}
 
-	public void setIdUF(Integer idEstado) {
+	public void setIdEstado(Integer idEstado) {
 		this.idEstado = idEstado;
 	}
 

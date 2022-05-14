@@ -1,10 +1,9 @@
 package br.com.devmedia.crud.command;
 
-import javax.servlet.http.HttpServletRequest;
-
 import br.com.devmedia.crud.bo.UsuarioBO;
 import br.com.devmedia.crud.dto.UsuarioDTO;
 import br.com.devmedia.crud.exception.NegocioException;
+import jakarta.servlet.http.HttpServletRequest;
 
 public class LoginCommand implements Command {
 	

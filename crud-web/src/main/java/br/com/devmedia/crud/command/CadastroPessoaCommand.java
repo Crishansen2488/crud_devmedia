@@ -3,8 +3,6 @@ package br.com.devmedia.crud.command;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import br.com.devmedia.crud.bo.PessoaBO;
 import br.com.devmedia.crud.dto.CidadeDTO;
 import br.com.devmedia.crud.dto.EnderecoDTO;
@@ -12,6 +10,7 @@ import br.com.devmedia.crud.dto.EstadoDTO;
 import br.com.devmedia.crud.dto.PessoaDTO;
 import br.com.devmedia.crud.dto.PreferenciaMusicalDTO;
 import br.com.devmedia.crud.validator.CamposObrigatoriosValidator;
+import jakarta.servlet.http.HttpServletRequest;
 
 public class CadastroPessoaCommand implements Command {
 	
@@ -55,10 +54,10 @@ public class CadastroPessoaCommand implements Command {
 			CidadeDTO cidadeDTO = new CidadeDTO();
 			cidadeDTO.setIdCidade(idCidade != null ? Integer.parseInt(idCidade) : null);
 			
-			EstadoDTO ufDTO = new EstadoDTO();
-			ufDTO.setIdUF(idEstado != null ? Integer.parseInt(idEstado) : null);
+			EstadoDTO estadoDTO = new EstadoDTO();
+			estadoDTO.setIdEstado(idEstado != null ? Integer.parseInt(idEstado) : null);
 			
-			cidadeDTO.setEstado(ufDTO);
+			cidadeDTO.setEstado(estadoDTO);
 			enderecoDTO.setCidade(cidadeDTO);
 			pessoaDTO.setEndereco(enderecoDTO);
 			

@@ -1,8 +1,7 @@
 package br.com.devmedia.crud.validator;
 
-import javax.servlet.http.HttpServletRequest;
-
 import br.com.devmedia.crud.util.MensagemContantes;
+import jakarta.servlet.http.HttpServletRequest;
 
 public class CamposObrigatoriosValidator {
 

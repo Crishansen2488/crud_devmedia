@@ -2,7 +2,7 @@ package br.com.devmedia.crud.util;
 
 import java.util.InputMismatchException;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 public class Util {
 

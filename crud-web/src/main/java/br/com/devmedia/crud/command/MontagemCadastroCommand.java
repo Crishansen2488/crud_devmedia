@@ -2,13 +2,12 @@ package br.com.devmedia.crud.command;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import br.com.devmedia.crud.dao.PessoaDAO;
 import br.com.devmedia.crud.dto.CidadeDTO;
-import br.com.devmedia.crud.dto.PreferenciaMusicalDTO;
 import br.com.devmedia.crud.dto.EstadoDTO;
+import br.com.devmedia.crud.dto.PreferenciaMusicalDTO;
 import br.com.devmedia.crud.exception.PersistenciaException;
+import jakarta.servlet.http.HttpServletRequest;
 
 public class MontagemCadastroCommand implements Command {
 	
