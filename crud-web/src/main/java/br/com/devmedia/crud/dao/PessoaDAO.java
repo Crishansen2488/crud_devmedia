@@ -22,7 +22,7 @@ public class PessoaDAO {
 			
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT * FROM tb_uf");
-			
+			//testando
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {
