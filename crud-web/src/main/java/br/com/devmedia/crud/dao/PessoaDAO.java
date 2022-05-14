@@ -27,7 +27,7 @@ public class PessoaDAO {
 			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				EstadoDTO estadoDTO = new EstadoDTO();
-				estadoDTO.setIdUF(resultSet.getInt(1));
+				estadoDTO.setIdEstado(resultSet.getInt(1));
 				estadoDTO.setSigla(resultSet.getString(2));
 				estadoDTO.setDescricao(resultSet.getString(3));
 				
@@ -81,7 +81,7 @@ public class PessoaDAO {
 				cidadeDTO.setDescricao(resultSet.getString("DESCRICAO"));
 				
 				EstadoDTO estadoDTO = new EstadoDTO();
-				estadoDTO.setIdUF(resultSet.getInt("COD_ESTADO"));
+				estadoDTO.setIdEstado(resultSet.getInt("COD_ESTADO"));
 				
 				cidadeDTO.setEstado(estadoDTO);
 				
