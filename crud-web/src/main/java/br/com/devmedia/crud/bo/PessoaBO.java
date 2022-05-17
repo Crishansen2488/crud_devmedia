@@ -3,26 +3,21 @@ package br.com.devmedia.crud.bo;
 import java.util.HashMap;
 import java.util.Map;
 
+import br.com.devmedia.crud.dao.PessoaDAO;
 import br.com.devmedia.crud.dto.PessoaDTO;
 import br.com.devmedia.crud.exception.NegocioException;
+import br.com.devmedia.crud.exception.PersistenciaException;
 import br.com.devmedia.crud.validator.CPFValidator;
 import br.com.devmedia.crud.validator.DataValidator;
 
-/**
- * Classe responsável por gerenciar os métodos de negócio da pessoa
- * 
- * @author Devmedia
- * 
- */
 public class PessoaBO {
+	
+	private PessoaDAO pessoaDAO;
+	
+	public PessoaBO() {
+		pessoaDAO = new PessoaDAO();
+	}
 
-	/**
-	 * Método resposável por validar a pessoa
-	 * 
-	 * @param request
-	 * @return
-	 * @throws NegocioException 
-	 */
 	public boolean validarPessoa(PessoaDTO pessoaDTO) throws NegocioException {
 		boolean isValido = true;
 		try {
@@ -33,7 +28,7 @@ public class PessoaBO {
 				isValido = true;
 			}
 			valores = new HashMap<>();
-			valores.put("'Data de Nascimento'", pessoaDTO.getDtNasc());
+			valores.put("'Data de Nascimento'", pessoaDTO.getNasc());
 			if (new DataValidator().validar(valores)) {
 				isValido = true;
 			}
@@ -43,6 +38,15 @@ public class PessoaBO {
 		}
 
 		return isValido;
+	}
+	
+	public void cadastrarPessoa(PessoaDTO pessoaDTO) throws NegocioException {
+		try {
+			pessoaDAO.cadastrarPessoa(pessoaDTO);
+		} catch (PersistenciaException e) {
+			e.printStackTrace();
+			throw new NegocioException(e.getMessage());
+		}
 	}
 
 }

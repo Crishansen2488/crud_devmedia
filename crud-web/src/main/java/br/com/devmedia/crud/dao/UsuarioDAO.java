@@ -29,7 +29,7 @@ public class UsuarioDAO {
 			Connection conexao = ConexaoUtil.getConexao();
 			
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT * FROM TB_USUARIO ");
+			sql.append("SELECT * FROM USUARIO ");
 			sql.append(" WHERE USUARIO = ? AND SENHA = ?");
 			
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());

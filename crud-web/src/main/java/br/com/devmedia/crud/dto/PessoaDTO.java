@@ -13,13 +13,13 @@ public class PessoaDTO implements Serializable {
 
 	private String cpf;
 
-	private String dtNasc;
+	private String nasc;
 
 	private char sexo;
 
 	private List<PreferenciaMusicalDTO> preferencias;
 
-	private String miniBio;
+	private String comentario;
 
 	private EnderecoDTO endereco;
 
@@ -39,22 +39,6 @@ public class PessoaDTO implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getDtNasc() {
-		return dtNasc;
-	}
-
-	public void setDtNasc(String dtNasc) {
-		this.dtNasc = dtNasc;
-	}
-
 	public char getSexo() {
 		return sexo;
 	}
@@ -71,20 +55,36 @@ public class PessoaDTO implements Serializable {
 		this.preferencias = preferencias;
 	}
 
-	public String getMiniBio() {
-		return miniBio;
-	}
-
-	public void setMiniBio(String miniBio) {
-		this.miniBio = miniBio;
-	}
-
 	public EnderecoDTO getEndereco() {
 		return endereco;
 	}
 
 	public void setEndereco(EnderecoDTO endereco) {
 		this.endereco = endereco;
+	}
+
+	public String getNasc() {
+		return nasc;
+	}
+
+	public void setNasc(String nasc) {
+		this.nasc = nasc;
+	}
+
+	public String getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 	
 }

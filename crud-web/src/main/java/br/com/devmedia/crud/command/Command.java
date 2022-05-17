@@ -1,6 +1,6 @@
 package br.com.devmedia.crud.command;
 
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Interface para o padrão Command

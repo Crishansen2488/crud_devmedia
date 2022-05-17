@@ -18,7 +18,7 @@ public class DataValidator implements Validator {
 					if (data.length() < 10) {
 						msgErro += MensagemContantes.MSG_ERR_CAMPO_DATA_MENOR_RECOMENDADO.replace("?", key).concat("<br/>");
 					}
-					if (data.length() > 11) {				
+					if (data.length() > 10) {				
 						msgErro += MensagemContantes.MSG_ERR_CAMPO_DATA_MAIOR_RECOMENDADO.replace("?", key).concat("<br/>");
 					}
 					new SimpleDateFormat("dd/MM/yyyy").parse(data);

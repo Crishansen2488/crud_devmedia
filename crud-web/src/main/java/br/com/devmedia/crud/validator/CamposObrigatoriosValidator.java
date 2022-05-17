@@ -1,7 +1,8 @@
 package br.com.devmedia.crud.validator;
 
+import javax.servlet.http.HttpServletRequest;
+
 import br.com.devmedia.crud.util.MensagemContantes;
-import jakarta.servlet.http.HttpServletRequest;
 
 public class CamposObrigatoriosValidator {
 
@@ -12,7 +13,7 @@ public class CamposObrigatoriosValidator {
 		
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
-		String dtNasc = request.getParameter("dtNasc");
+		String nasc = request.getParameter("nasc");
 		String sexo = request.getParameter("sexo");
 		String idEstado = request.getParameter("estado");
 		String idCidade = request.getParameter("cidade");
@@ -26,7 +27,7 @@ public class CamposObrigatoriosValidator {
 			valida = false;
 			msgErro += MensagemContantes.MSG_ERR_CAMPO_OBRIGATORIO.replace("?", "'CPF'").concat("<br/>");
 		}
-		if (dtNasc==null || dtNasc.equals("")) {
+		if (nasc==null || nasc.equals("")) {
 			valida = false;
 			msgErro += MensagemContantes.MSG_ERR_CAMPO_OBRIGATORIO.replace("?", "'Data de Nascimento'").concat("<br/>");
 		}

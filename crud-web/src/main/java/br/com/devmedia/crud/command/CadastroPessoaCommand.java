@@ -3,27 +3,34 @@ package br.com.devmedia.crud.command;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import br.com.devmedia.crud.bo.PessoaBO;
 import br.com.devmedia.crud.dto.CidadeDTO;
 import br.com.devmedia.crud.dto.EnderecoDTO;
 import br.com.devmedia.crud.dto.EstadoDTO;
 import br.com.devmedia.crud.dto.PessoaDTO;
 import br.com.devmedia.crud.dto.PreferenciaMusicalDTO;
+import br.com.devmedia.crud.exception.NegocioException;
+import br.com.devmedia.crud.util.MensagemContantes;
 import br.com.devmedia.crud.validator.CamposObrigatoriosValidator;
-import jakarta.servlet.http.HttpServletRequest;
 
 public class CadastroPessoaCommand implements Command {
 	
 	private String proximo;
+	private PessoaBO pessoaBO;
+	boolean valido = false;
 	
 	public String execute(HttpServletRequest request) {	
+		pessoaBO = new PessoaBO();
 		proximo = "cadastroPessoa.jsp";
+		
 		
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
-		String dtNasc = request.getParameter("dtNasc");
+		String nasc = request.getParameter("nasc");
 		String sexo = request.getParameter("sexo");
-		String miniBio = request.getParameter("miniBio");
+		String comentario = request.getParameter("comentario");
 		String idEstado = request.getParameter("estado");
 		String idCidade = request.getParameter("cidade");
 		String logradouro = request.getParameter("logradouro");
@@ -39,12 +46,12 @@ public class CadastroPessoaCommand implements Command {
 			}
 		}
 		try {
-			boolean valido = true;
+			
 			PessoaDTO pessoaDTO = new PessoaDTO();
 			pessoaDTO.setNome(nome);
 			pessoaDTO.setCpf(cpf);
-			pessoaDTO.setDtNasc(dtNasc);
-			pessoaDTO.setMiniBio(miniBio);
+			pessoaDTO.setNasc(nasc);
+			pessoaDTO.setComentario(comentario);
 			pessoaDTO.setSexo(sexo != null ? sexo.charAt(0) : ' ');
 			pessoaDTO.setPreferencias(listaPreferenciasMusicais);
 			
@@ -61,11 +68,19 @@ public class CadastroPessoaCommand implements Command {
 			enderecoDTO.setCidade(cidadeDTO);
 			pessoaDTO.setEndereco(enderecoDTO);
 			
-			valido = new CamposObrigatoriosValidator().camposObrigatoriosValidator(request);
+			if(new CamposObrigatoriosValidator().camposObrigatoriosValidator(request)) {
+				valido = true;
+			}
+			if(valido) {
+				if (pessoaBO.validarPessoa(pessoaDTO)) {
+					pessoaBO.cadastrarPessoa(pessoaDTO);
+					request.setAttribute("msgSucessoCadastro", MensagemContantes.MSG_SUCESSO_CADASTRO_PESSOA);
+				}else {
+					request.setAttribute("msgErro", MensagemContantes.MSG_ERR_PESSOA_DADOS_INVALIDOS);
+				}
+			}
 			
-			valido = new PessoaBO().validarPessoa(pessoaDTO);
-	
-		} catch (Exception e) {
+		} catch (NegocioException e) {
 			request.setAttribute("msgErro", e.getMessage());
 		}
 		

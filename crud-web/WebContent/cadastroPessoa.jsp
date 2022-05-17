@@ -37,6 +37,9 @@
 				<div class="erroDiv" style="display: ${msgErro != null && msgErro != '' ? 'block' : 'none'}">
 					${msgErro != null ? msgErro : ''}
 				</div>
+				<div class="sucessoDiv" style="display: ${msgSucessoCadastro != null && msgSucessoCadastro != '' ? 'block' : 'none'}">
+					${msgSucessoCadastro != null ? msgSucessoCadastro : ''}
+				</div>
 				<fieldset id="fieldset">
 					<legend>Cadastro de Pessoa</legend>
 					 
@@ -51,7 +54,7 @@
 						</tr>
 						<tr>
 							<td>Data de Nascimento*:</td>
-							<td><input type="text" name="dtNasc" maxlength="10" value="${param.dtNasc}"/></td>
+							<td><input type="text" name="nasc" maxlength="10" value="${param.nasc}"/></td>
 						</tr>
 						<tr>
 							<td>Sexo*:</td>
@@ -79,9 +82,9 @@
 							</td>
 						</tr>
 						<tr>
-							<td>Mini-biografia:</td>
+							<td>Comentário:</td>
 							<td>
-								<textarea rows="5" cols="40" name="miniBio">${param.miniBio}</textarea>
+								<textarea rows="5" cols="40" name="comentario">${param.comentario}</textarea>
 							</td>
 						</tr>
 					</table>

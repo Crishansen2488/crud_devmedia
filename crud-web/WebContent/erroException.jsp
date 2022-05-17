@@ -12,7 +12,7 @@
 	<jsp:include page="cabecalho.jsp"/>
 	
 	<div class="main">
-		<h1>Alguma exceção inesperada aconteceu... :(</h1>
+		<h1>Algum erro inesperado aconteceu... :(</h1>
 		<fieldset>
 			<legend>Dica</legend> 
 			

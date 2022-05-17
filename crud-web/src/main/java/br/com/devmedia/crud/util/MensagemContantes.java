@@ -17,4 +17,6 @@ public class MensagemContantes {
 	public static final String MSG_ERR_CAMPO_DATA_MAIOR_RECOMENDADO = "Campo ? com mais de 10 caracteres!";
 
 	public static final String MSG_ERR_CAMPO_DATA_MENOR_RECOMENDADO = "Campo ? com menos de 10 caracteres!";
+	
+	public static final String MSG_SUCESSO_CADASTRO_PESSOA = "Cadastro efetuado com sucesso!";
 }

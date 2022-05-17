@@ -133,3 +133,10 @@ select{
 	padding: 10px;
 	font-weight: bold;
 }
+.sucessoDiv {
+	min-height: 25px;
+	border: 2px solid green;
+	width: auto;
+	padding: 10px;
+	font-weight: bold;
+}

@@ -5,7 +5,7 @@
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
   <error-page>
-  	<exception-type>jakarta.servlet.ServletException</exception-type>
+  	<exception-type>java.lang.Exception</exception-type>
   	<location>/erroException.jsp</location>
   </error-page>
 </web-app>
