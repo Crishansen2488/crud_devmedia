@@ -6,8 +6,8 @@
 	</div>
 	<ul>
 		<li><a href="main?acao=index" class="${param.acao eq 'index' ? 'selected' : ''}">Home</a></li>
-		<li><a href="main?acao=montagemCadastro" class="${param.acao eq 'cadastros' ? 'selected' : ''}">Cadastros</a></li>
-		<li><a href="main?acao=consultas" class="${param.acao eq 'consultas' ? 'selected' : ''}">Consultas</a></li>
+		<li><a href="main?acao=montagemCadastro" class="${param.acao eq 'montagemCadastro' ? 'selected' : ''}">Cadastros</a></li>
+		<li><a href="main?acao=consultasPessoa" class="${param.acao eq 'consultasPessoa' ? 'selected' : ''}">Consultas</a></li>
 		<li><a href="main?acao=logout" class="${param.acao eq 'logout' ? 'selected' : ''}">Sair</a></li>
 	</ul>
 	<div class="boasVindas">

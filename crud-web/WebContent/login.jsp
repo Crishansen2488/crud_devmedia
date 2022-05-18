@@ -9,10 +9,7 @@
 </head>
 <body>
 	<form method="post" id="login_form" action="main?acao=login">
-		<div class="erroDiv" style="display: ${msgErro != null ? 'block' : 'none'}">
-			${msgErro != null ? msgErro : ''}
-		</div>
-	
+		<jsp:include page="msg.jsp"></jsp:include>	
 		<fieldset id="fieldset_login">
 			<legend>Login do Sistema</legend>
 		

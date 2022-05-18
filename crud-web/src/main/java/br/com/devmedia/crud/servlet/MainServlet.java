@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.devmedia.crud.command.CadastroPessoaCommand;
 import br.com.devmedia.crud.command.Command;
+import br.com.devmedia.crud.command.ConsultasPessoaCommand;
+import br.com.devmedia.crud.command.IndexCommand;
 import br.com.devmedia.crud.command.LoginCommand;
+import br.com.devmedia.crud.command.LogoutCommand;
 import br.com.devmedia.crud.command.MontagemCadastroCommand;
 
 @WebServlet("/main")
@@ -27,6 +30,10 @@ public class MainServlet extends HttpServlet {
 		comandos.put("login", new LoginCommand());
 		comandos.put("montagemCadastro", new MontagemCadastroCommand());
 		comandos.put("cadastroPessoa", new CadastroPessoaCommand());
+		comandos.put("consultasPessoa", new ConsultasPessoaCommand());
+		comandos.put("index", new IndexCommand());
+		comandos.put("logout", new LogoutCommand());
+		
 	}
 
 	@Override

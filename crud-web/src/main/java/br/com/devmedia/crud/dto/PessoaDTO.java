@@ -63,14 +63,6 @@ public class PessoaDTO implements Serializable {
 		this.endereco = endereco;
 	}
 
-	public String getNasc() {
-		return nasc;
-	}
-
-	public void setNasc(String nasc) {
-		this.nasc = nasc;
-	}
-
 	public String getComentario() {
 		return comentario;
 	}
@@ -85,6 +77,14 @@ public class PessoaDTO implements Serializable {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public String getNasc() {
+		return nasc;
+	}
+
+	public void setNasc(String nasc) {
+		this.nasc = nasc;
 	}
 	
 }

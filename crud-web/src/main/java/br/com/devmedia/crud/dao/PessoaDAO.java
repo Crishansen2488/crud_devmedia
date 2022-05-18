@@ -221,4 +221,40 @@ public class PessoaDAO {
 			}
 		}
 	}
+	
+	public List<PessoaDTO> listarPessoas() throws PersistenciaException{
+		List<PessoaDTO> listaPessoas = new ArrayList<>();
+		Connection conexao = null;
+		try {
+			conexao = ConexaoUtil.getConexao();
+			
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT * FROM pessoa");
+			
+			PreparedStatement statement = conexao.prepareStatement(sql.toString());
+			ResultSet resultSet = statement.executeQuery();
+			
+			while(resultSet.next()) {
+				PessoaDTO pessoaDTO = new PessoaDTO();
+				pessoaDTO.setIdPessoa(resultSet.getInt(1));
+				pessoaDTO.setNome(resultSet.getString(2));
+				pessoaDTO.setCpf(resultSet.getString(3));
+				pessoaDTO.setNasc(resultSet.getString("nasc"));
+				pessoaDTO.setSexo(resultSet.getString(5).charAt(0));
+				pessoaDTO.setComentario(resultSet.getString(6));
+				
+				listaPessoas.add(pessoaDTO);
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new PersistenciaException(e);
+		} finally {
+			try {
+				conexao.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return listaPessoas;
+	}
 }

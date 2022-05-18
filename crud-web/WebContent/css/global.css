@@ -1,5 +1,3 @@
-@CHARSET "ISO-8859-1";
-
 body,input {
 	font-family: Segoe UI, Arial, Times;
 	font-size: 12pt;
@@ -79,6 +77,7 @@ select{
 .rodape {
 	padding: 5px;
 	border-top: 1px dotted gray;
+	margin-top: 10px;
 }
 
 .cabecalho {
@@ -132,6 +131,7 @@ select{
 	width: auto;
 	padding: 10px;
 	font-weight: bold;
+	margin: 30px 2px 0 2px;
 }
 .sucessoDiv {
 	min-height: 25px;
@@ -139,4 +139,13 @@ select{
 	width: auto;
 	padding: 10px;
 	font-weight: bold;
+	margin: 30px 2px 0 2px;
+}
+.avisoDiv{
+	min-height: 25px;
+	border: 2px solid orange;
+	width: auto;
+	padding: 10px;
+	font-weight: bold;
+	margin: 30px 2px 0 2px;
 }

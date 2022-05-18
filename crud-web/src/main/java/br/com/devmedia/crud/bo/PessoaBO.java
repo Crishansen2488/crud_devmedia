@@ -1,6 +1,7 @@
 package br.com.devmedia.crud.bo;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import br.com.devmedia.crud.dao.PessoaDAO;
@@ -47,6 +48,17 @@ public class PessoaBO {
 			e.printStackTrace();
 			throw new NegocioException(e.getMessage());
 		}
+	}
+	
+	public List<PessoaDTO> listarPessoas() throws NegocioException{
+		List<PessoaDTO> lista = null;
+		try {
+			lista = pessoaDAO.listarPessoas();
+		} catch (PersistenciaException e) {
+			e.printStackTrace();
+			throw new NegocioException(e.getMessage());
+		}
+		return lista;
 	}
 
 }

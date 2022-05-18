@@ -23,8 +23,7 @@ public class CadastroPessoaCommand implements Command {
 	
 	public String execute(HttpServletRequest request) {	
 		pessoaBO = new PessoaBO();
-		proximo = "cadastroPessoa.jsp";
-		
+		proximo = "consultas.jsp";
 		
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
@@ -74,7 +73,9 @@ public class CadastroPessoaCommand implements Command {
 			if(valido) {
 				if (pessoaBO.validarPessoa(pessoaDTO)) {
 					pessoaBO.cadastrarPessoa(pessoaDTO);
+					proximo = "main?acao=consultasPessoa";
 					request.setAttribute("msgSucessoCadastro", MensagemContantes.MSG_SUCESSO_CADASTRO_PESSOA);
+					
 				}else {
 					request.setAttribute("msgErro", MensagemContantes.MSG_ERR_PESSOA_DADOS_INVALIDOS);
 				}
@@ -82,6 +83,7 @@ public class CadastroPessoaCommand implements Command {
 			
 		} catch (NegocioException e) {
 			request.setAttribute("msgErro", e.getMessage());
+			proximo = "cadastroPessoa.jsp";
 		}
 		
 		return proximo;

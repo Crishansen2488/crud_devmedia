@@ -2,11 +2,12 @@ package br.com.devmedia.crud.validator;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.devmedia.crud.exception.NegocioException;
 import br.com.devmedia.crud.util.MensagemContantes;
 
 public class CamposObrigatoriosValidator {
 
-	public boolean camposObrigatoriosValidator(HttpServletRequest request) {
+	public boolean camposObrigatoriosValidator(HttpServletRequest request) throws NegocioException {
 		
 		boolean valida = true;
 		String msgErro = "";
@@ -47,7 +48,11 @@ public class CamposObrigatoriosValidator {
 			valida = false;
 			msgErro += MensagemContantes.MSG_ERR_CAMPO_OBRIGATORIO.replace("?", "'Logradouro'").concat("<br/>");
 		}
-		request.setAttribute("msgErro", msgErro);
+		if (!valida) {
+			request.setAttribute("msgErro", msgErro);
+			throw new NegocioException(msgErro);
+		}
+		
 		return valida;
 		
 	}
