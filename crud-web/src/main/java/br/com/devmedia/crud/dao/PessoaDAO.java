@@ -239,7 +239,7 @@ public class PessoaDAO {
 				pessoaDTO.setIdPessoa(resultSet.getInt(1));
 				pessoaDTO.setNome(resultSet.getString(2));
 				pessoaDTO.setCpf(resultSet.getString(3));
-				pessoaDTO.setNasc(resultSet.getString("nasc"));
+				pessoaDTO.setNasc(dateFormat.format(resultSet.getDate(4)));
 				pessoaDTO.setSexo(resultSet.getString(5).charAt(0));
 				pessoaDTO.setComentario(resultSet.getString(6));
 				

@@ -10,6 +10,12 @@
 	thead{
 		text-align: left;	
 	}
+	table{
+		width: 100%;
+	}
+	table img{
+		width: 25px;
+	}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Consultas</title>
@@ -25,7 +31,7 @@
 			<fieldset>
 				<legend>Consultas</legend> 
 				<h1>Consultas</h1>
-				<table>
+				<table border="1" cellspacing="0" cellpadding="5">
 					<thead>
 						<tr>
 							<th>Id</th>
@@ -34,6 +40,7 @@
 							<th>Data de Nascimento</th>
 							<th>Sexo</th>
 							<th>Comentário</th>
+							<th colspan="2" align="center">Ações</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -49,6 +56,12 @@
 						<td><%=pessoa.getNasc()%></td>
 						<td><%=pessoa.getSexo()%></td>
 						<td><%=pessoa.getComentario()%></td>
+						<td align="center">
+							<a href="" title="Editar"><img src="img/edit.png" alt="Edição de Pessoa"/></a>
+						</td>
+						<td align="center" title="Remover">
+							<a href=""><img src="img/delete.png" alt="Remoção de Pessoa"/></a>
+						</td>
 					</tr>
 				<%
 					}
