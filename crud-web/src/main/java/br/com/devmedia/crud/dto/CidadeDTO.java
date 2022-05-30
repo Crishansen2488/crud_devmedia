@@ -11,7 +11,7 @@ public class CidadeDTO implements Serializable {
 	private String descricao;
 
 	private EstadoDTO estado;
-
+	//teste git
 	public Integer getIdCidade() {
 		return idCidade;
 	}
